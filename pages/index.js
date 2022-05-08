@@ -1,4 +1,5 @@
 import MeetupList from '../components/meetups/MeetupList';
+import { useEffect, useState } from 'react/cjs/react.production.min';
 
 const DUMMY_MEETUPS = [
     {
@@ -22,7 +23,19 @@ const DUMMY_MEETUPS = [
 ]
 
 function HomePage() {
+    const [loadedMeetups, setLoadedMeetups] = useState();
+    useEffect(() => {
+        // send a http request and fetch data
+    },[])
+
     return <MeetupList meetups={DUMMY_MEETUPS} />
+}
+
+export async function getStaticProps() {
+    // will never execute on client side
+    return {
+        props: {}
+    }; // always return it
 }
 
 export default HomePage;
