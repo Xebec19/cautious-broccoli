@@ -23,7 +23,7 @@ const DUMMY_MEETUPS = [
 ]
 
 function HomePage() {
-    const [loadedMeetups, setLoadedMeetups] = useState();
+    const [loadedMeetups, setLoadedMeetups] = useState([]);
     useEffect(() => {
         // send a http request and fetch data
     },[])
@@ -31,11 +31,20 @@ function HomePage() {
     return <MeetupList meetups={DUMMY_MEETUPS} />
 }
 
-export async function getStaticProps() {
-    // will never execute on client side
+// export async function getStaticProps() {
+//     // will never execute on client side
+//     return {
+//         props: {
+//             meetups: DUMMY_MEETUPS
+//         },
+//         revalidate: 10
+//     }; // always return it
+// }
+
+export async function getServerSideProps(){
     return {
-        props: {}
-    }; // always return it
+        props:
+    }
 }
 
 export default HomePage;
